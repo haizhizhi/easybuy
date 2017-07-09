@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户信息</title>
+<!-- 适应移动平台 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- 导入CSS文件 -->
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="css/fullcalendar.css" />
+<link rel="stylesheet" href="css/unicorn.main.css" />
+<link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />
+<link rel="stylesheet" href="css/jquery-ui.css" />
+<link rel="stylesheet" href="css/uniform.css" />
+<link rel="stylesheet" href="css/select2.css" />		
+<link rel="stylesheet" href="css/unicorn.main.css" />
+<link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />	
+</head>
+<body>
+	<div id="header">
+		<h1><a href="#">Unicorn Admin</a></h1>		
+	</div>
+	<div id="search">
+		<input type="text" placeholder="Search here..."><button type="submit" class="tip-right" title="" data-original-title="Search">
+			<i class="icon-search icon-white"></i>
+		</button>
+	</div>
+	<div id="user-nav" class="navbar navbar-inverse">
+        <ul class="nav btn-group" style="width: auto; margin: 0px;">
+            <li class="btn btn-inverse">
+            	<a title="" href="#"><i class="icon icon-user"></i><span class="text">Profile</span></a>
+            </li>
+            <li class="btn btn-inverse dropdown" id="menu-messages">
+            	<a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle">
+            		<i class="icon icon-envelope"></i>
+            		<span class="text">Messages</span>
+            		<span class="label label-important">5</span><b class="caret"></b>
+            	</a>
+                <ul class="dropdown-menu">
+                    <li><a class="sAdd" title="" href="#">new message</a></li>
+                    <li><a class="sInbox" title="" href="#">inbox</a></li>
+                    <li><a class="sOutbox" title="" href="#">outbox</a></li>
+                    <li><a class="sTrash" title="" href="#">trash</a></li>
+                </ul>
+            </li>
+            <li class="btn btn-inverse"><a title="" href="#">
+            	<i class="icon icon-cog"></i><span class="text">Settings</span></a>
+            </li>
+            <li class="btn btn-inverse">
+            	<a title="" href="login.html">
+            		<i class="icon icon-share-alt"></i><span class="text">Logout</span>
+            	</a>
+            </li>
+        </ul>
+    </div>
+	<div id="sidebar">
+		<a href="#" class="visible-phone"><i class="icon icon-home"></i>Dashboard</a>
+		<ul style="display: block;">
+			<li >
+				<a href="index.html">
+					<i class="icon icon-home"></i>
+					<span>站点首页</span>
+				</a>
+			</li>
+			<li class="submenu active open">
+				<a href="#">
+					<i class="icon icon-user"></i>
+					<span>用户管理</span>
+				</a>
+				<ul>
+					<li>
+						<a href="user_add.html">
+							<i class="icon icon-pencil"></i>
+							<span style="margin-left: 30px;">注册用户</span>
+						</a>
+					</li>
+					<li class="active">
+						<a href="user_message.html">
+							<i class="icon icon-list-alt"></i>
+							<span style="margin-left: 30px;">用户信息</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-book"></i>
+					<span>库存信息</span>
+				</a>
+				<ul>
+					<li>
+						<a href="book_add.html">
+							<i class="icon icon-download-alt"></i>
+							<span style="margin-left: 30px;">新书入库</span>
+						</a>
+					</li>
+					<li>
+						<a href="book_message.html">
+							<i class="icon icon-gift"></i>
+							<span style="margin-left: 30px;">库存管理</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-tags"></i>
+					<span>订单管理</span>
+				</a>
+				<ul>
+					<li>
+						<a href="order_add.html">
+							<i class="icon icon-plus"></i>
+							<span style="margin-left: 30px;">添加订单</span>
+						</a>
+					</li>
+					<li>
+						<a href="order_message.html">
+							<i class="icon icon-leaf"></i>
+							<span style="margin-left: 30px;">订单信息</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-eye-open"></i>
+					<span>统计信息</span>
+				</a>
+				<ul>
+					<li>
+						<a href="group_message.html">
+							<i class="icon icon-th"></i>
+							<span style="margin-left: 30px;">数据汇总</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>	
+	</div>
+	<div id="style-switcher">
+		<i class="icon-arrow-left icon-white"></i>
+		<span>Style:</span>
+		<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+        <a href="#light-blue" style="background-color: #8399b0;"></a>
+		<a href="#blue" style="background-color: #2D2F57;"></a>
+		<a href="#red" style="background-color: #673232;"></a>
+        <a href="#red-green" style="background-image: url('img/demo/red-green.png');background-repeat: no-repeat;"></a>
+	</div>
+	<div id="content">
+    <div id="content-header">
+        <h1>用户信息</h1>
+    </div>
+    <div id="breadcrumb">
+        <a href="index.html" title="" class="tip-bottom" data-original-title="首页"><i
+                class="icon-home"></i>首页</a>
+        <a href="#" title="" class="tip-bottom" data-original-title="用户管理">用户管理</a>
+        <a href="user_message.html" class="current">用户信息</a>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <!-- 查询标题 -->
+                    <div class="widget-title">
+                        <h5>查询条件</h5>
+                    </div>
+                    <!-- 查询内容 -->
+                    <div class="widget-content" style="height: 40px;">
+                        <form action="" method="post" class="form-horizontal">
+                            <span class="span3">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td>姓名</td>
+                                        <td style="width: 88%;"><input type="text" name="userName"></td>
+                                    </tr>
+                                </table>
+                            </span>
+                            <span class="span3">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td>性别</td>
+                                        <td style="width: 88%;">
+                                            <select name="userSex" style="width: 80%;">
+                                                <option value="不限">不限</option>
+                                                <option value="男">男</option>
+                                                <option value="女">女</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </span>
+                            <span class="span3">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td>职称</td>
+                                        <td style="width: 88%;">
+                                            <select name="userJob" style="width: 80%;">
+                                                <option value="不限">不限</option>
+                                                <option value="教授">教授</option>
+                                                <option value="副教授">副教授</option>
+                                                <option value="讲师">讲师</option>
+                                                <option value="工程师">工程师</option>
+                                                <option value="助教">助教</option>
+                                                <option value="助工">助工</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </span>
+                            <span class="span3">
+                                <button type="submit" class="btn btn-primary">查询</button>
+                            </span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon">
+                            <i class="icon icon-list"></i>
+                        </span>
+                        <h5>查询结果</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped table-hover data-table">
+                            <thead>
+                                <tr>
+                                    <th>用户编号</th>
+                                    <th>用户姓名</th>
+                                    <th>用户性别</th>
+                                    <th>用户职位</th>
+                                    <th>用户地址</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="gradeX">
+                                <td>111</td>
+                                <td>王维利</td>
+                                <td>女</td>
+                                <td>教授</td>
+                                <td>1号楼424</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>112</td>
+                                <td>李立</td>
+                                <td>男</td>
+                                <td>副教授</td>
+                                <td>2号楼316</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>113</td>
+                                <td>张三</td>
+                                <td>男</td>
+                                <td>讲师</td>
+                                <td>3号楼105</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>114</td>
+                                <td>周华发</td>
+                                <td>男</td>
+                                <td>讲师</td>
+                                <td>1号楼316</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>115</td>
+                                <td>赵正义</td>
+                                <td>男</td>
+                                <td>工程师</td>
+                                <td>1号楼224</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>116</td>
+                                <td>李明</td>
+                                <td>男</td>
+                                <td>副教授</td>
+                                <td>1号楼318</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>117</td>
+                                <td>李小峰</td>
+                                <td>男</td>
+                                <td>助教</td>
+                                <td>1号楼214</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>118</td>
+                                <td>许鹏飞</td>
+                                <td>男</td>
+                                <td>助工</td>
+                                <td>1号楼216</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>119</td>
+                                <td>刘大龙</td>
+                                <td>男</td>
+                                <td>教授</td>
+                                <td>1号楼318</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>120</td>
+                                <td>李雪</td>
+                                <td>男</td>
+                                <td>副教授</td>
+                                <td>4号楼506</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>121</td>
+                                <td>李爽</td>
+                                <td>女</td>
+                                <td>讲师</td>
+                                <td>4号楼510</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>122</td>
+                                <td>王纯</td>
+                                <td>女</td>
+                                <td>讲师</td>
+                                <td>4号楼512</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>123</td>
+                                <td>沈小霞</td>
+                                <td>女</td>
+                                <td>助教</td>
+                                <td>2号楼202</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>124</td>
+                                <td>朱海</td>
+                                <td>男</td>
+                                <td>讲师</td>
+                                <td>2号楼210</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>125</td>
+                                <td>马英明</td>
+                                <td>男</td>
+                                <td>副教授</td>
+                                <td>2号楼212</td>
+                                <td style="text-align: center;">
+                                    <a href="#"><i class="icon icon-pencil" title="修改"></i></a>
+                                    |
+                                    <a href="#" class="href_del"><i class="icon icon-trash" title="删除"></i> </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.custom.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.uniform.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/unicorn.js"></script>
+<script src="js/unicorn.tables.js"></script>
+<script>
+    $(function () {
+        $(".href_del").click(function () {
+            if (!confirm("确定删除吗？")){
+                return false;
+            }
+        });
+    });
+</script>
+</body>
+  
+</body>
+</html>

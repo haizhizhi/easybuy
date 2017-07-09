@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>注册用户</title>
+<!-- 适应移动平台 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- 导入CSS文件 -->
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="css/colorpicker.css" />
+<link rel="stylesheet" href="css/datepicker.css" />
+<link rel="stylesheet" href="css/uniform.css" />
+<link rel="stylesheet" href="css/select2.css" />
+<link rel="stylesheet" href="css/unicorn.main.css" />
+<link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />
+<link rel="stylesheet" href="css/jquery.gritter.css" />
+<link rel="stylesheet" href="css/jquery-ui.css" />
+
+
+
+</head>
+<body>
+	<div id="header">
+		<h1><a href="#">Unicorn Admin</a></h1>		
+	</div>
+	<div id="search">
+		<input type="text" placeholder="Search here..."><button type="submit" class="tip-right" title="" data-original-title="Search">
+			<i class="icon-search icon-white"></i>
+		</button>
+	</div>
+	<div id="user-nav" class="navbar navbar-inverse">
+        <ul class="nav btn-group" style="width: auto; margin: 0px;">
+            <li class="btn btn-inverse">
+            	<a title="" href="#"><i class="icon icon-user"></i><span class="text">Profile</span></a>
+            </li>
+            <li class="btn btn-inverse dropdown" id="menu-messages">
+            	<a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle">
+            		<i class="icon icon-envelope"></i>
+            		<span class="text">Messages</span>
+            		<span class="label label-important">5</span><b class="caret"></b>
+            	</a>
+                <ul class="dropdown-menu">
+                    <li><a class="sAdd" title="" href="#">new message</a></li>
+                    <li><a class="sInbox" title="" href="#">inbox</a></li>
+                    <li><a class="sOutbox" title="" href="#">outbox</a></li>
+                    <li><a class="sTrash" title="" href="#">trash</a></li>
+                </ul>
+            </li>
+            <li class="btn btn-inverse"><a title="" href="#">
+            	<i class="icon icon-cog"></i><span class="text">Settings</span></a>
+            </li>
+            <li class="btn btn-inverse">
+            	<a title="" href="login.html">
+            		<i class="icon icon-share-alt"></i><span class="text">Logout</span>
+            	</a>
+            </li>
+        </ul>
+    </div>
+	<div id="sidebar">
+		<a href="#" class="visible-phone"><i class="icon icon-home"></i>Dashboard</a>
+		<ul style="display: block;">
+			<li>
+				<a href="index.html">
+					<i class="icon icon-home"></i>
+					<span>站点首页</span>
+				</a>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-user"></i>
+					<span>用户管理</span>
+				</a>
+				<ul>
+					<li >
+						<a href="user_add.html">
+							<i class="icon icon-pencil"></i>
+							<span style="margin-left: 30px;">注册用户</span>
+						</a>
+					</li>
+					<li>
+						<a href="user_message.html">
+							<i class="icon icon-list-alt"></i>
+							<span style="margin-left: 30px;">用户信息</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu ">
+				<a href="#">
+					<i class="icon icon-book"></i>
+					<span>库存管理</span>
+				</a>
+				<ul>
+					<li >
+						<a href="book_add.html">
+							<i class="icon icon-download-alt"></i>
+							<span style="margin-left: 30px;">新书入库</span>
+						</a>
+					</li>
+					<li>
+						<a href="book_message.html">
+							<i class="icon icon-gift"></i>
+							<span style="margin-left: 30px;">库存信息</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu active open">
+				<a href="#">
+					<i class="icon icon-tags"></i>
+					<span>订单管理</span>
+				</a>
+				<ul>
+					<li>
+						<a href="order_add.html">
+							<i class="icon icon-plus active" ></i>
+							<span style="margin-left: 30px;">添加订单</span>
+						</a>
+					</li>
+					<li>
+						<a href="order_message.html">
+							<i class="icon icon-leaf"></i>
+							<span style="margin-left: 30px;">订单信息</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-eye-open"></i>
+					<span>统计信息</span>
+				</a>
+				<ul>
+					<li>
+						<a href="group_message.html">
+							<i class="icon icon-th"></i>
+							<span style="margin-left: 30px;">数据汇总</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>	
+	</div>
+	<div id="style-switcher">
+		<i class="icon-arrow-left icon-white"></i>
+		<span>Style:</span>
+		<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+        <a href="#light-blue" style="background-color: #8399b0;"></a>
+		<a href="#blue" style="background-color: #2D2F57;"></a>
+		<a href="#red" style="background-color: #673232;"></a>
+        <a href="#red-green" style="background-image: url('img/demo/red-green.png');background-repeat: no-repeat;"></a>
+	</div>
+	<div id="content">
+		<div id="content-header">
+			<h1>新书入库</h1>	
+		</div>
+		<div id="breadcrumb">
+			<a href="index.html" title="" class="tip-bottom" data-original-title="Go to Home">
+				<i class="icon-home"></i>站点首页
+			</a>
+			<!-- 标识所处的位置 -->
+			<a href="#" title="" class="tip-bottom" data-original-title="用户信息">订单管理</a>
+			<a href="user_add.html" class="current">添加订单</a>
+		</div>
+		<!-- 显示控件div -->
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+					<!-- 控件放在此DIV中 -->
+					<div class="widget-box">
+						<!-- 标题 -->
+						<div class="widget-title">
+							<span class="icon">
+								<i class="icon-align-justify"></i>									
+							</span>
+							<h5>添加订单 </h5>
+						</div>
+						<!-- 主体 -->
+						<div class="widget-content nopadding">
+							<form action="addBook.action" method="post" class="form-horizontal" name="basic_validate" id="basic_validate" novalidate="novalidate">
+								<table class="table table-bordered table-striped table-hover" id="a">
+									<tr>
+										<th>商品名称</th>
+										<th>商品价格</th>
+										<th>购买数量</th>
+										<th>操作</th>
+									</tr>
+									<tr id="clone">
+										<td class="thumb">
+											<select name="userJob" style="width:100px;">
+												<option value="教授">教授</option>
+												<option value="副教授">副教授</option>
+												<option value="讲师">讲师</option>
+												<option value="工程师">工程师</option>
+												<option value="助教">助教</option>
+												<option value="助工">助工</option>
+											</select>
+										</td>
+										<td class="price" id="price_id_0">
+											<span>￥99.00</span>
+											<input type="hidden" value="99" />
+										</td>
+										<td class="number">
+					                       <span class="ui-icon ui-icon-minusthick" name="del" style="display:inline-block;"></span>
+					                        
+					                        <input id="number_id_0" type="text" name="number" value="1" style="width:100px!important;"/>
+					                       
+					                        <span class="ui-icon ui-icon-plusthick" name="add" style="display:inline-block;" >+</span>
+										</td>
+										<td class="delete"><a href="javascript:void(0)">删除</a></td>
+									</tr>
+								</table>
+					           <div class="form-actions">
+									<button type="submit" id="btn1" class="btn btn-primary">添加</button>
+									<button type="reset" class="btn btn-primary" id="abc">+</button>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div id="footer" class="span12">
+				2012 - 2013 &copy; Unicorn Admin. Brought to you by <a href="https://wrapbootstrap.com/user/diablo9983">diablo9983</a>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- 导入JS文件 -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.ui.custom.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-colorpicker.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/jquery.uniform.js"></script>
+	<script src="js/select2.min.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	<script src="js/unicorn.js"></script>
+	<script src="js/unicorn.form_common.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$(".number").find("span").click(function(){
+	        var $tds=$(this).parent().parent().children("td");
+	        var $price= $($tds[1]);
+	        var $number=$($tds[2]);
+	        var price = $price.find("input[type='hidden']").val();//存值
+	        var $priceBox =$price.find("span");//现实价钱
+	        var $number= $number.find("input");//得到存储input对象
+	        var opr=$(this).attr("name");//判断增减
+	        var number = $number.val();//数量
+	        if(opr=="del"){
+	            number--;
+	            if(number<=0){
+	                if(confirm("确定要删除吗？")) {
+	                    $price.parent().remove();
+	                }else{
+	                    number=1;
+	                }
+	            }
+	        }else if(opr=="add"){
+	            number++;
+	        }
+	        $number.val(number);
+	        $priceBox.text("￥" + price * number);
+	        $("#total").text("总计：￥"+totalPrice());
+	    });
+	});
+	
+		$(function(){
+			$("#abc").click(function(){
+				var obj = $("#clone").clone(true);
+				obj.appendTo("#a");			
+			});
+		});
+	</script>
+</body>
+</html>

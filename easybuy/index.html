@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>站点首页</title>
+<!-- 适应移动平台 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- 导入CSS文件 -->
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="css/fullcalendar.css" />
+<link rel="stylesheet" href="css/unicorn.main.css" />
+<link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />
+</head>
+<body>
+	<div id="header">
+		<h1><a href="#">Unicorn Admin</a></h1>		
+	</div>
+	<div id="search">
+		<input type="text" placeholder="Search here..."><button type="submit" class="tip-right" title="" data-original-title="Search">
+			<i class="icon-search icon-white"></i>
+		</button>
+	</div>
+	<div id="user-nav" class="navbar navbar-inverse">
+        <ul class="nav btn-group" style="width: auto; margin: 0px;">
+            <li class="btn btn-inverse">
+            	<a title="" href="#"><i class="icon icon-user"></i><span class="text">Profile</span></a>
+            </li>
+            <li class="btn btn-inverse dropdown" id="menu-messages">
+            	<a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle">
+            		<i class="icon icon-envelope"></i>
+            		<span class="text">Messages</span>
+            		<span class="label label-important">5</span><b class="caret"></b>
+            	</a>
+                <ul class="dropdown-menu">
+                    <li><a class="sAdd" title="" href="#">new message</a></li>
+                    <li><a class="sInbox" title="" href="#">inbox</a></li>
+                    <li><a class="sOutbox" title="" href="#">outbox</a></li>
+                    <li><a class="sTrash" title="" href="#">trash</a></li>
+                </ul>
+            </li>
+            <li class="btn btn-inverse"><a title="" href="#">
+            	<i class="icon icon-cog"></i><span class="text">Settings</span></a>
+            </li>
+            <li class="btn btn-inverse">
+            	<a title="" href="login.html">
+            		<i class="icon icon-share-alt"></i><span class="text">Logout</span>
+            	</a>
+            </li>
+        </ul>
+    </div>
+	<div id="sidebar">
+		<a href="#" class="visible-phone"><i class="icon icon-home"></i>Dashboard</a>
+		<ul style="display: block;">
+			<li class="active">
+				<a href="index.html">
+					<i class="icon icon-home"></i>
+					<span>站点首页</span>
+				</a>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-user"></i>
+					<span>用户管理</span>
+				</a>
+				<ul>
+					<li>
+						<a href="user_add.html">
+							<i class="icon icon-pencil"></i>
+							<span style="margin-left: 30px;">注册用户</span>
+						</a>
+					</li>
+					<li>
+						<a href="user_message.html">
+							<i class="icon icon-list-alt"></i>
+							<span style="margin-left: 30px;">用户信息</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-book"></i>
+					<span>库存管理</span>
+				</a>
+				<ul>
+					<li>
+						<a href="book_add.html">
+							<i class="icon icon-download-alt"></i>
+							<span style="margin-left: 30px;">新书入库</span>
+						</a>
+					</li>
+					<li>
+						<a href="book_message.html">
+							<i class="icon icon-gift"></i>
+							<span style="margin-left: 30px;">库存信息</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-tags"></i>
+					<span>订单管理</span>
+				</a>
+				<ul>
+					<li>
+						<a href="order_add.html">
+							<i class="icon icon-plus"></i>
+							<span style="margin-left: 30px;">添加订单</span>
+						</a>
+					</li>
+					<li>
+						<a href="order_message.html">
+							<i class="icon icon-leaf"></i>
+							<span style="margin-left: 30px;">订单信息</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-eye-open"></i>
+					<span>统计信息</span>
+				</a>
+				<ul>
+					<li>
+						<a href="group_message.html">
+							<i class="icon icon-th"></i>
+							<span style="margin-left: 30px;">数据汇总</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>	
+	</div>
+	<div id="style-switcher">
+		<i class="icon-arrow-left icon-white"></i>
+		<span>Style:</span>
+		<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+        <a href="#light-blue" style="background-color: #8399b0;"></a>
+		<a href="#blue" style="background-color: #2D2F57;"></a>
+		<a href="#red" style="background-color: #673232;"></a>
+        <a href="#red-green" style="background-image: url('img/demo/red-green.png');background-repeat: no-repeat;"></a>
+	</div>
+	<div id="content">
+		<div id="content-header">
+			<h1>首页</h1>
+		</div>
+		<div id="breadcrumb">
+			<a href="#" class="current"><i class="icon icon-home"></i>书店首页</a>
+		</div>
+
+		<!--盒子-->
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12 center" style="text-align: center;">
+					<ul class="stat-boxes">
+						<li class="popover-visits showMsg" data-original-title="" title="">
+							<div class="left peity_bar_good">
+								<span><span style="display: none;">2,4,9,7,12,10,12</span>
+									<canvas width="50" height="24"></canvas></span>+10%
+							</div>
+							<div class="right">
+								<strong>36094</strong> 访问量
+							</div>
+						</li>
+						<div class="popover bottom"
+							style="top: 238px; left: 167.5px; display: none;">
+							<div class="arrow"></div>
+							<h3 class="popover-title"></h3>
+							<div class="popover-content">
+								<span class="content-big">36094</span> <span
+									class="content-small">总访问量</span><br> <span
+									class="content-big">220</span> <span class="content-small">今天访问
+								</span><br> <span class="content-big">200</span> <span
+									class="content-small">昨天访问</span><br> <span
+									class="content-big">5677</span> <span class="content-small">一个月内
+								</span>
+							</div>
+						</div>
+						<li class="popover-users showMsg" data-original-title="" title="">
+							<div class="left peity_bar_neutral">
+								<span><span style="display: none;">20,15,18,14,10,9,9,9</span>
+									<canvas width="50" height="24"></canvas></span>0%
+							</div>
+							<div class="right">
+								<strong>1433</strong>用户数量
+							</div>
+						</li>
+						<div class="popover bottom "
+							style="top: 238px; left: 375px; display: none;">
+							<div class="arrow"></div>
+							<h3 class="popover-title"></h3>
+							<div class="popover-content">
+								<span class="content-big">1433</span> <span
+									class="content-small">总用户</span><br> <span
+									class="content-big">0</span> <span class="content-small">今天注册用户
+								</span><br> <span class="content-big">0</span> <span
+									class="content-small">昨天注册用户</span><br> <span
+									class="content-big">16</span> <span class="content-small">一周内注册用户
+								</span>
+							</div>
+						</div>
+						<li class="popover-orders showMsg" data-original-title="" title="">
+							<div class="left peity_bar_bad">
+								<span><span style="display: none;">3,5,9,7,12,20,10</span>
+									<canvas width="50" height="24"></canvas></span>-50%
+							</div>
+							<div class="right">
+								<strong>8650</strong> 订单数量
+							</div>
+						</li>
+						<div class="popover bottom"
+							style="top: 238px; left: 595px; display: none;">
+							<div class="arrow"></div>
+							<h3 class="popover-title"></h3>
+							<div class="popover-content">
+								<span class="content-big">8650</span> <span
+									class="content-small">总订单</span><br> <span
+									class="content-big">29</span> <span class="content-small">今天订单
+								</span><br> <span class="content-big">32</span> <span
+									class="content-small">昨天订单</span><br> <span
+									class="content-big">64</span> <span class="content-small">一周内订单
+								</span>
+							</div>
+						</div>
+						<li class="popover-tickets showMsg" data-original-title=""
+							title="">
+							<div class="left peity_line_good">
+								<span><span style="display: none;">12,6,9,23,14,10,17</span>
+									<canvas width="50" height="24"></canvas></span>+70%
+							</div>
+							<div class="right">
+								<strong>2968</strong> 成交数量
+							</div>
+						</li>
+						<div class="popover bottom"
+							style="top: 238px; left: 813.5px; display: none;">
+							<div class="arrow"></div>
+							<h3 class="popover-title"></h3>
+							<div class="popover-content">
+								<span class="content-big">2968</span> <span
+									class="content-small">成交总数</span><br> <span
+									class="content-big">48</span> <span class="content-small">今天成交
+								</span><br> <span class="content-big">495</span> <span
+									class="content-small">昨天成交</span> <br> <span
+									class="content-big">1234</span> <span class="content-small">一周内成交</span>
+							</div>
+						</div>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="row-fluid">
+
+				<div class="span12">
+					<div class="alert alert-info">
+						欢迎访问 <strong>Easy Buy</strong>，本页面数据纯属扯蛋！！ <a href="#"
+							data-dismiss="alert" class="close">×</a>
+					</div>
+					<div class="widget-box">
+						<!--盒子标题-->
+						<div class="widget-title">
+							<span class="icon"> <i class="icon-align-justify"></i>
+							</span>
+							<h5>近期情况</h5>
+							<div class="buttons">
+								<a href="#" class="btn btn-mini"><i class="icon-refresh"></i>
+									刷新</a>
+							</div>
+						</div>
+						<!--向盒子内添加内容-->
+						<div class="widget-content">
+							<div class="row-fluid">
+								<div class="span4">
+									<ul class="site-stats">
+										<li><i class="icon-user"></i> <strong>1433</strong> <small>总
+												用户</small></li>
+										<li><i class="icon-arrow-right"></i> <strong>16</strong>
+											<small>新用户(一周内)</small></li>
+										<li class="divider"></li>
+										<li><i class="icon-shopping-cart"></i> <strong>259</strong>
+											<small>总商品</small></li>
+										<li><i class="icon-tag"></i> <strong>8650</strong> <small>
+												总订单</small></li>
+										<li><i class="icon-repeat"></i> <strong>29</strong> <small>退单数量
+										</small></li>
+									</ul>
+								</div>
+								<div class="span8 showData" id="main" style="height: 301px;">
+								</div>
+								<div class="span12 showData" id="main2" style="height: 301px;">
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="widget-content nopadding"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="row-fluid">
+		<div id="footer" class="span12">
+			2012 - 2013 © Unicorn Admin. Brought to you by <a
+				href="https://wrapbootstrap.com/user/diablo9983">XXXXXXXX</a>
+		</div>
+	</div>
+	
+	<!-- 导入JS文件 -->
+	<script src="js/echarts.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/excanvas.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.custom.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.flot.min.js"></script>
+	<script src="js/jquery.flot.resize.min.js"></script>
+	<script src="js/jquery.peity.min.js"></script>
+	<script src="js/fullcalendar.min.js"></script>
+	<script src="js/unicorn.js"></script>
+	<script src="js/unicorn.dashboard.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		
+		$(".showMsg").hover(
+		function(){
+			$(this).next().css("display","block");
+			
+		},
+		function(){
+			$(this).next().css("display","none");
+		}
+		
+		);
+		
+		var myChart = echarts.init(document.getElementById("main"));
+			var month=new Date().getMonth();
+			setDate(30,"天","上月用户订单情况表--"+month+"月");
+		// 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option);
+		
+		
+		var myChart = echarts.init(document.getElementById("main2"));
+		setDate(365,"天","年用户订单情况趋势表");
+		myChart.setOption(option);
+		
+		$("#main2").children(":first").css("margin","0 -30px");
+	};
+	
+	function setDate(dateNum,str,strTitle){
+		
+		var xAxisData = [];
+		var data1 = [];
+		var data2 = [];
+		for (var i = 0,j=1; i < dateNum; i++) {
+			xAxisData.push( j+str);
+			j++;
+		    data1.push((Math.sin(i / 5) * (i / 5 -10) + i / 6) * 5);
+		    data2.push((Math.cos(i / 5) * (i / 5 -10) + i / 6) * 5);
+		}
+		option = {
+		    title: {
+		        text: strTitle
+		    },
+		    legend: {
+		        data: ['订单', '用户'],
+		        align: 'left'
+		    },
+		    toolbox: {
+		        // y: 'bottom',
+		        feature: {
+		            magicType: {
+		                type: ['stack', 'tiled']
+		            },
+		            dataView: {},
+		            saveAsImage: {
+		                pixelRatio: 2
+		            }
+		        }
+		    },
+		    tooltip: {},
+		    xAxis: {
+		        data: xAxisData,
+		        silent: false,
+		        splitLine: {
+		            show: false
+		        }
+		    },
+		    yAxis: {
+		    },
+		    series: [{
+		        name: '订单',
+		        type: 'bar',
+		        data: data1,
+		        animationDelay: function (idx) {
+		            return idx * 10;
+		        }
+		    }, {
+		        name: '用户',
+		        type: 'bar',
+		        data: data2,
+		        animationDelay: function (idx) {
+		            return idx * 10 + 100;
+		        }
+		    }],
+		    animationEasing: 'elasticOut',
+		    animationDelayUpdate: function (idx) {
+		        return idx * 5;
+		    }
+		};
+	};
+	
+</script>
+</body>
+</html>

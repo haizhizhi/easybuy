@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>注册用户</title>
+<!-- 适应移动平台 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- 导入CSS文件 -->
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="css/colorpicker.css" />
+<link rel="stylesheet" href="css/datepicker.css" />
+<link rel="stylesheet" href="css/uniform.css" />
+<link rel="stylesheet" href="css/select2.css" />
+<link rel="stylesheet" href="css/unicorn.main.css" />
+<link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />
+
+</head>
+<body>
+	<div id="header">
+		<h1><a href="#">Unicorn Admin</a></h1>		
+	</div>
+	<div id="search">
+		<input type="text" placeholder="Search here..."><button type="submit" class="tip-right" title="" data-original-title="Search">
+			<i class="icon-search icon-white"></i>
+		</button>
+	</div>
+	<div id="user-nav" class="navbar navbar-inverse">
+        <ul class="nav btn-group" style="width: auto; margin: 0px;">
+            <li class="btn btn-inverse">
+            	<a title="" href="#"><i class="icon icon-user"></i><span class="text">Profile</span></a>
+            </li>
+            <li class="btn btn-inverse dropdown" id="menu-messages">
+            	<a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle">
+            		<i class="icon icon-envelope"></i>
+            		<span class="text">Messages</span>
+            		<span class="label label-important">5</span><b class="caret"></b>
+            	</a>
+                <ul class="dropdown-menu">
+                    <li><a class="sAdd" title="" href="#">new message</a></li>
+                    <li><a class="sInbox" title="" href="#">inbox</a></li>
+                    <li><a class="sOutbox" title="" href="#">outbox</a></li>
+                    <li><a class="sTrash" title="" href="#">trash</a></li>
+                </ul>
+            </li>
+            <li class="btn btn-inverse"><a title="" href="#">
+            	<i class="icon icon-cog"></i><span class="text">Settings</span></a>
+            </li>
+            <li class="btn btn-inverse">
+            	<a title="" href="login.html">
+            		<i class="icon icon-share-alt"></i><span class="text">Logout</span>
+            	</a>
+            </li>
+        </ul>
+    </div>
+	<div id="sidebar">
+		<a href="#" class="visible-phone"><i class="icon icon-home"></i>Dashboard</a>
+		<ul style="display: block;">
+			<li>
+				<a href="index.html">
+					<i class="icon icon-home"></i>
+					<span>站点首页</span>
+				</a>
+			</li>
+			<li class="submenu active open">
+				<a href="#">
+					<i class="icon icon-user"></i>
+					<span>用户管理</span>
+				</a>
+				<ul>
+					<li class="active">
+						<a href="user_add.html">
+							<i class="icon icon-pencil"></i>
+							<span style="margin-left: 30px;">注册用户</span>
+						</a>
+					</li>
+					<li>
+						<a href="user_message.html">
+							<i class="icon icon-list-alt"></i>
+							<span style="margin-left: 30px;">用户信息</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-book"></i>
+					<span>库存管理</span>
+				</a>
+				<ul>
+					<li>
+						<a href="book_add.html">
+							<i class="icon icon-download-alt"></i>
+							<span style="margin-left: 30px;">新书入库</span>
+						</a>
+					</li>
+					<li>
+						<a href="book_message.html">
+							<i class="icon icon-gift"></i>
+							<span style="margin-left: 30px;">库存信息</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-tags"></i>
+					<span>订单管理</span>
+				</a>
+				<ul>
+					<li>
+						<a href="order_add.html">
+							<i class="icon icon-plus"></i>
+							<span style="margin-left: 30px;">添加订单</span>
+						</a>
+					</li>
+					<li>
+						<a href="order_message.html">
+							<i class="icon icon-leaf"></i>
+							<span style="margin-left: 30px;">订单信息</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="submenu">
+				<a href="#">
+					<i class="icon icon-eye-open"></i>
+					<span>统计信息</span>
+				</a>
+				<ul>
+					<li>
+						<a href="group_message.html">
+							<i class="icon icon-th"></i>
+							<span style="margin-left: 30px;">数据汇总</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>	
+	</div>
+	<div id="style-switcher">
+		<i class="icon-arrow-left icon-white"></i>
+		<span>Style:</span>
+		<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+        <a href="#light-blue" style="background-color: #8399b0;"></a>
+		<a href="#blue" style="background-color: #2D2F57;"></a>
+		<a href="#red" style="background-color: #673232;"></a>
+        <a href="#red-green" style="background-image: url('img/demo/red-green.png');background-repeat: no-repeat;"></a>
+	</div>
+	<div id="content">
+    <div id="content-header">
+        <h1>注册用户</h1>
+    </div>
+    <div id="breadcrumb">
+        <a href="index.html" title="" class="tip-bottom" data-original-title="Go to Home"><i
+                class="icon-home"></i>首页</a>
+        <a href="#" title="" class="tip-bottom" data-original-title="用户管理">用户管理</a>
+        <a href="user_add.html" class="current">用户注册</a>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div id="error" class="alert alert-error" style="margin-bottom: 0px; display: none;">
+                        <button class="close" data-dismiss="alert">×</button>
+                        <strong>Error!</strong> <span id="text_error"></span>
+                    </div>
+                    <div class="widget-title">
+								<span class="icon">
+									<i class="icon-align-justify"></i>
+								</span>
+                        <h5>新用户信息</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form action="#" method="post" class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label">姓名</label>
+                                <div class="controls">
+                                    <span class="span3">
+                                        <input type="text" name="userName">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">性别</label>
+                                <div class="controls">
+                                    <label><input type="radio" name="userSex" value="男" checked="checked"/> 男</label>
+                                    <label><input type="radio" name="userSex" value="女"/> 女</label>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">职位</label>
+
+                                <div class="controls">
+                                        <select name="userJob" style="width: 210px;">
+                                            <option value="教授">教授</option>
+                                            <option value="副教授">副教授</option>
+                                            <option value="讲师">讲师</option>
+                                            <option value="工程师">工程师</option>
+                                            <option value="助教">助教</option>
+                                            <option value="助工">助工</option>
+                                        </select>
+                                </div>
+
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">地址</label>
+                                <div class="controls">
+                                    <span class="span3">
+                                        <input type="text" name="userAddress">
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" id="btn1" class="btn btn-primary">注册</button>
+                                <button type="reset" class="btn btn-primary">清空</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.custom.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-colorpicker.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/jquery.uniform.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/unicorn.js"></script>
+<script src="js/unicorn.form_common.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#btn1").click(function() {
+            var $name = $("[name='userName']");
+            if ($name.val()=="") {
+                $("#error").show();
+                $("#text_error").text("用户名不能为空");
+                $name.focus();
+                return false;
+            }
+        });
+    });
+</script>
+</body>
+</html>
